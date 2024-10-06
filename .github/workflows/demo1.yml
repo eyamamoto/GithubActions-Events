@@ -6,7 +6,18 @@ on:
     types: 
       - opened
   workflow_dispatch:
-    
+  #quando um push for executado em diferentes branches pode fazer diferentes ações como subir em ambientes distintos
+  push:
+    branches:
+      - main
+      - 'dev-*' # dev-new dev-developer dev-issue
+      - 'feat/**' #feat/new feat/new/123
+      # branches developer-1 não serão ativadas por exemplo
+
+    paths:        #ativa se alterar em uma pasta especifica
+
+    paths-ignore: #ignora os paths e nao ativa se tiver alterações nesse path
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
