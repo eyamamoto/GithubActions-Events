@@ -1,5 +1,11 @@
 name: Events Demo 1
-on: ...
+#usando activity types para pull request
+on: 
+  #roda quando for executado uma ação tipo pull request
+  pull_request:
+    types: 
+      - opened
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
